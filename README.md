@@ -27,7 +27,7 @@ import useAxiosGet from "@sjblurton/use-axios-get";
 
 ```bash
 function App() {
-  const {status, todos, error, mutate} = useAxiosGet<MockData>(
+  const {status, data: todos, error, mutate} = useAxiosGet<MockData>(
     "https://jsonplaceholder.typicode.com/todos"
   );
 
