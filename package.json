@@ -33,7 +33,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "use-axios-get",
+  "name": "@sjblurton/use-axios-get",
   "author": "Simon Blurton",
   "module": "dist/use-axios-get.esm.js",
   "size-limit": [
