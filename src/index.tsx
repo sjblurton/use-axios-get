@@ -10,12 +10,12 @@ function useAxiosGet<Data>(
   url: string
 ): {
   status: Status;
-  data: Data[] | undefined;
+  data: Data | undefined;
   error: AxiosError | undefined;
-  mutate: KeyedMutator<Data[]>;
+  mutate: KeyedMutator<Data>;
 } {
   const [status, setStatus] = useState<Status>('idle');
-  const { data, isValidating, mutate, error } = useSWR<Data[]>(url, getFetcher);
+  const { data, isValidating, mutate, error } = useSWR<Data>(url, getFetcher);
 
   useEffect(() => {
     if ((!data && !error) || isValidating) return setStatus('pending');

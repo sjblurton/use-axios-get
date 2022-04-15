@@ -19,14 +19,14 @@ export type MockData = {
 describe('testing API calling', () => {
   it('should be loading before data response.', async () => {
     const { result } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todos')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todos')
     );
     expect(result.current.status).toBe('pending');
   });
 
   it('should be fulfilled when data loaded.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todos')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todos')
     );
     await waitForNextUpdate();
     expect(result.current.status).toBe('fulfilled');
@@ -34,7 +34,7 @@ describe('testing API calling', () => {
 
   it('should have an array of data.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todos')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todos')
     );
     await waitForNextUpdate();
     expect(result.current.data).toEqual(mockData);
@@ -42,7 +42,7 @@ describe('testing API calling', () => {
 
   it('should revert status back to pending if mutate is running.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todos')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todos')
     );
     await waitForNextUpdate();
     expect(result.current.data).toEqual(mockData);
@@ -54,7 +54,7 @@ describe('testing API calling', () => {
 
   it('should revert status back to fulfilled when mutate has finished.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todos')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todos')
     );
     await waitForNextUpdate();
     expect(result.current.data).toEqual(mockData);
@@ -67,7 +67,7 @@ describe('testing API calling', () => {
 
   it('should update error status.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todo')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todo')
     );
     await waitForNextUpdate();
     expect(result.current.status).toBe('error');
@@ -75,7 +75,7 @@ describe('testing API calling', () => {
 
   it('should give 404 message.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder.typicode.com/todo')
+      useAxiosGet<MockData[]>('https://jsonplaceholder.typicode.com/todo')
     );
     await waitForNextUpdate();
     expect(result.current.error?.message).toBe(
@@ -85,7 +85,7 @@ describe('testing API calling', () => {
 
   it('should give 500 error.', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useAxiosGet<MockData>('https://jsonplaceholder')
+      useAxiosGet<MockData[]>('https://jsonplaceholder')
     );
     await waitForNextUpdate();
     expect(result.current.error?.message).toBe('Network Error');
