@@ -45,3 +45,9 @@ function App() {
   );
 }
 ```
+
+### **Links**
+
+GitHub: https://github.com/sjblurton/use-axios-get
+<br/>
+NPM: https://www.npmjs.com/package/@sjblurton/use-axios-get
