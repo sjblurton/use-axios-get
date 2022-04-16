@@ -23,6 +23,15 @@
     "type": "git",
     "url": "https://github.com/sjblurton/use-axios-get"
   },
+  "keywords": [
+    "react",
+    "hooks",
+    "custom",
+    "typescript",
+    "test",
+    "testing",
+    "mock server testing"
+  ],
   "peerDependencies": {
     "react": ">=16"
   },
